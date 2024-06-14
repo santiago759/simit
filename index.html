@@ -31,16 +31,19 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="resources/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="resources/images/favicon.ico" type="image/x-icon">
-   
-   
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.6/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="vendors/bootstrap-multiselect/css/bootstrap-multiselect.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.6/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="core/config/config.js"></script>
     <script src="vendors/vue/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -58,9 +61,9 @@
 <body class="accesible-text-minus h-100">
     <tag-manager id="tag-manager"></tag-manager>
     <div class="container-fluid contact-info text-center">
-        <img src="icon1.png"  width="22" height="22"></a>
-        <img src="icon2.png"  width="22" height="22"><a href="tel:+573336026800">Línea celular (+57) 333 602 68 00</a>
-        <a href="tel:018000413588"><img src="icon3.png"  width="22" height="22">01 8000 413 588</a>
+        <img src="icon1.png" width="22" height="22">
+        <img src="icon2.png" width="22" height="22"><a href="tel:+573336026800">Línea celular (+57) 333 602 68 00</a>
+        <a href="tel:018000413588"><img src="icon3.png" width="22" height="22">01 8000 413 588</a>
     </div>
     <!-- Loader -->
     <div>
@@ -71,18 +74,16 @@
         <!-- Main nav -->
         <nav class="row navbar main-header navbar-expand-lg navbar-light mb-4 pb-3 pt-2 bg-white shadow-sm mt-2 mt-md-0" aria-label="Menú de navegación principal SIMIT">
             <a class="navbar-brand col col-md-2 p-0 ml-4" href="#/home-public" aria-label="Simit - Federación Colombiana de Municipios">
-                <!-- Asegúrate de que la ruta a la imagen sea correcta -->
                 <img src="logo-landing.png" class="img-fluid" alt="Simit - Federación Colombiana de Municipios" title="Simit - Federación Colombiana de Municipios">
             </a>
             <gadgets-navbar class="d-lg-flex d-md-flex d-none row no-gutters align-items-center ml-auto mb-0"></gadgets-navbar>
             <div class="d-flex flex-row bd-highlight order-2 order-lg-3">
                 <a role="button" aria-label="Menú SIMIT" href="javascript:;" id="openMenu" data-toggle="collapse" data-target="#navbarNavDropdown" class="toggle-menu ml-4 px-2 pt-1 text-dark">
-                    <em id="initStep2" class='bx bx-menu menu-icon'></em>
+                    <img id="initStep2" src="menu.png" width="22" height="22">
                 </a>
             </div>
         </nav>
     </div>
-    
     <gadgets-sidebar></gadgets-sidebar>
     <inicio-sesion></inicio-sesion>
     <registro></registro>
@@ -115,15 +116,15 @@
                                                     <input id="txtBusqueda" name="txtBusqueda" type="text" data-step="4" placeholder="Número de identificación o placa del vehículo" aria-label="Número de identificación o placa del vehículo" class="form-control border-0">
                                                     <div class="input-group-append">
                                                         <button type="submit" id="consultar" aria-label="Consultar estado de cuenta" data-step="3" class="btn btn-primary font-weight-bold btn-sm py-1">
-                                                            <em class="bx bx-search align-middle fs-27"></em>
+                                                            <img src="buscar.png" width="22" height="22">
                                                         </button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
-                                    
                                 </div>
+                                <!-- carrusel -->
                                 <div id="initStep8" class="row margin-top-card">
                                     <div class="col-lg-4 col-12">
                                         <div id="carousel-home" role="banner" aria-label="Carrusel informativo SIMIT" class="owl-carousel owl-theme h-100 owl-loaded owl-drag">
@@ -229,119 +230,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="owl-item" style="width: 315.2px;">
-                                                        <div class="item">
-                                                            <div class="card card-carousel-1 border-0">
-                                                                <div class="card-body pb-4">
-                                                                    <a href="https://pqrsdsimit.fcm.org.co/Publico/IndexWebPQRS.aspx" target="_blank" rel="noopener noreferrer" aria-labelledby="pqrds-id">
-                                                                        <div class="row">
-                                                                            <div class="col-lg-8 col-md-6">
-                                                                                <h5 class="text-secondary mb-0 d-lg-block d-md-none d-none">¿Deseas solicitar</h5>
-                                                                                <h5 class="text-secondary mb-0 font-weight-bold d-lg-block d-md-none d-none"> una PQRSD?</h5>
-                                                                                <h5 id="pqrds-id" class="text-secondary mb-0 d-lg-none d-md-block">¿Deseas solicitar <span class="text-secondary mb-0 font-weight-bold"> una PQRSD?</span></h5>
-                                                                                <p class="fs-13 mb-3 mb-lg-0">Descubre la forma en la que podemos solucionar tus inconvenientes.</p>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                                <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-6.png" title="Descubre la forma en la que podemos solucionar tus inconvenientes." class="img-fluid">
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item" style="width: 315.2px;">
-                                                        <div class="item">
-                                                            <div class="card card-carousel-1 border-0">
-                                                                <div class="card-body pb-4">
-                                                                    <a href="https://fcm.org.co/noticias/" target="_blank" rel="noopener noreferrer" aria-labelledby="ultimas-noticias-id">
-                                                                        <div class="row">
-                                                                            <div class="col-lg-8 col-md-6">
-                                                                                <h5 class="text-secondary mb-0 d-lg-block d-md-none d-none">¡Lee aquí nuestras</h5>
-                                                                                <h5 class="text-secondary mb-0 font-weight-bold d-lg-block d-md-none d-none">últimas noticias!</h5>
-                                                                                <h5 id="ultimas-noticias-id" class="text-secondary mb-0 d-lg-none d-md-block">¡Lee aquí nuestras <span class="text-secondary mb-0 font-weight-bold">últimas noticias!</span></h5>
-                                                                                <p class="fs-13 mb-3 mb-lg-0">Ingresa aquí y entérate de los acontecimientos más recientes.</p>
-                                                                            </div>
-                                                                            <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                                <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-2.png" alt="Lee nuestras últimas noticias." class="img-fluid">
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item" style="width: 315.2px;">
-                                                        <div class="card card-carousel-3 border-0">
-                                                            <div class="card-body pb-4">
-                                                                <a href="javascript:;" aria-labelledby="consulta-placas">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8 col-md-6 pr-0">
-                                                                            <h5 class="text-secondary mb-2">¡Información <span class="font-weight-bold">importante!</span></h5>
-                                                                            <p id="consulta-placas" class="fs-13 mb-1 mb-lg-0">Si consultas por placa, se mostrarán las multas asociadas al vehículo independiente del conductor.</p>
-                                                                        </div>
-                                                                        <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                            <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-8.png" alt="Conoce nuestros puntos de pago." title="Conoce nuestros puntos de pago." class="img-fluid">
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item cloned" style="width: 315.2px;">
-                                                        <div class="card card-carousel-1 border-0">
-                                                            <div class="card-body pb-4">
-                                                                <div class="row">
-                                                                    <div class="col-lg-8 col-md-6">
-                                                                        <h5 id="contactanos-id" class="text-secondary mb-0">¡Simit evoluciona</h5>
-                                                                        <h5 class="text-secondary font-weight-bold"><b>para ti!</b></h5>
-                                                                        <p class="fs-13 mb-3 mb-lg-0">Ahora podremos estar siempre en contacto desde nuestra línea celular <b>333-6026800</b></p>
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                        <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-1.png" alt="Diligencia el formulario y te ayudaremos a resolver tus inquietudes." title="¡Simit evoluciona" class="img-fluid">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item cloned" style="width: 315.2px;">
-                                                        <div class="card card-carousel-2 border-0">
-                                                            <div class="card-body pb-4">
-                                                                <a href="https://fcm.org.co/" target="_blank" rel="noopener noreferrer" aria-labelledby="simit-id">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8 col-md-6">
-                                                                            <h5 class="text-secondary mb-0 d-lg-block d-md-none d-none">Federación Colombiana</h5>
-                                                                            <h5 class="text-secondary mb-0 font-weight-bold d-lg-block d-md-none d-none">de Municipios</h5>
-                                                                            <h5 id="simit-id" class="text-secondary mb-0 d-lg-none d-md-block">Federación Colombiana <span class="text-secondary mb-0 font-weight-bold">de Municipios</span></h5>
-                                                                            <p class="fs-13 mb-3 mb-lg-0">Entérate de la labor que ejerce y la importancia de su servicio.</p>
-                                                                        </div>
-                                                                        <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                            <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-3.png" alt="Simit - Federación Colombiana de Municipios" title="Simit - Federación Colombiana de Municipios" class="img-fluid">
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="owl-item cloned" style="width: 315.2px;">
-                                                        <div class="card card-carousel-1 border-0">
-                                                            <div class="card-body pb-4">
-                                                                <a href="https://pqrsdsimit.fcm.org.co/Publico/IndexWebPQRS.aspx" target="_blank" rel="noopener noreferrer" aria-labelledby="pqrds-id">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8 col-md-6">
-                                                                            <h5 class="text-secondary mb-0 d-lg-block d-md-none d-none">¿Deseas solicitar</h5>
-                                                                            <h5 class="text-secondary mb-0 font-weight-bold d-lg-block d-md-none d-none"> una PQRSD?</h5>
-                                                                            <h5 id="pqrds-id" class="text-secondary mb-0 d-lg-none d-md-block">¿Deseas solicitar <span class="text-secondary mb-0 font-weight-bold"> una PQRSD?</span></h5>
-                                                                            <p class="fs-13 mb-3 mb-lg-0">Descubre la forma en la que podemos solucionar tus inconvenientes.</p>
-                                                                        </div>
-                                                                        <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
-                                                                            <img src="https://cdn.quipux.com/simit2/resources/images/img-carousel-6.png" title="Descubre la forma en la que podemos solucionar tus inconvenientes." class="img-fluid">
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="owl-nav">
@@ -352,15 +240,31 @@
                                                     <span aria-label="Next">›</span>
                                                 </button>
                                             </div>
-                                            <div class="owl-dots">
-                                                <button role="button" class="owl-dot"><span></span></button>
-                                                <button role="button" class="owl-dot active"><span></span></button>
-                                                <button role="button" class="owl-dot"><span></span></button>
-                                                <button role="button" class="owl-dot"><span></span></button>
-                                                <button role="button" class="owl-dot"><span></span></button>
-                                            </div>
+                                            
                                         </div>
                                     </div>
+                                    <script>
+                                        $(document).ready(function(){
+                                            $("#carousel-home").owlCarousel({
+                                                loop: true,
+                                                margin: 10,
+                                                nav: true,
+                                                dots: true,
+                                                responsive: {
+                                                    0: {
+                                                        items: 1
+                                                    },
+                                                    600: {
+                                                        items: 1
+                                                    },
+                                                    1000: {
+                                                        items: 1
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                    <!-- carrusel -->
                                     <div role="complementary" aria-label="Información de interés" class="col-lg-4 col-md-12 col-12 mt-lg-0 mt-2">
                                         <div class="card card-info border-0 box-shadow-sm h-100">
                                             <div class="card-body py-2 px-0">

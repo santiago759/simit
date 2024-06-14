@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Owl</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <style>
+        .card-carousel-1, .card-carousel-2, .card-carousel-3 {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+        }
+        .card-carousel-1 img, .card-carousel-2 img, .card-carousel-3 img {
+            max-width: 100%;
+            height: auto;
+        }
+        .card-carousel-1 h5, .card-carousel-2 h5, .card-carousel-3 h5 {
+            color: #0056b3;
+            font-weight: bold;
+        }
+        .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .owl-carousel .owl-nav button.owl-prev {
+            left: -25px;
+        }
+        .owl-carousel .owl-nav button.owl-next {
+            right: -25px;
+        }
+        .owl-carousel .owl-nav button.owl-prev span, .owl-carousel .owl-nav button.owl-next span {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="initStep8" class="row margin-top-card">
+    <div class="col-lg-4 col-12">
+        <div id="carousel-home" role="banner" aria-label="Carrusel informativo SIMIT" class="owl-carousel owl-theme h-100">
+            <!-- Tus elementos del carrusel aquí -->
+        </div>
+    </div>
+    <!-- Otros componentes de la página -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#carousel-home").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: ["‹", "›"],
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        });
+    });
+</script>
+
+</body>
+</html>
