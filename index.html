@@ -69,7 +69,6 @@
     <div>
         <div id="loader" class="loader"></div>
     </div>
-    <gadgets-accesibilidad></gadgets-accesibilidad>
     <div class="container-fluid banner-fixed" id="gadgets-menu">
         <!-- Main nav -->
         <nav class="row navbar main-header navbar-expand-lg navbar-light mb-4 pb-3 pt-2 bg-white shadow-sm mt-2 mt-md-0" aria-label="Menú de navegación principal SIMIT">
@@ -84,10 +83,7 @@
             </div>
         </nav>
     </div>
-    <gadgets-sidebar></gadgets-sidebar>
-    <inicio-sesion></inicio-sesion>
-    <registro></registro>
-    <recuperar-contrasena></recuperar-contrasena>
+    
     <!-- content -->
     <div class="h-100">
         <div class="container-fluid main-layout-content h-100" id="main-layout-content">
@@ -250,6 +246,8 @@
                                                 margin: 10,
                                                 nav: true,
                                                 dots: true,
+                                                autoplay: true,
+                                                autoplayTimeout: 3000, // Tiempo en milisegundos (3 segundos)
                                                 responsive: {
                                                     0: {
                                                         items: 1
@@ -264,6 +262,7 @@
                                             });
                                         });
                                     </script>
+                                    
                                     <!-- carrusel -->
                                     <div role="complementary" aria-label="Información de interés" class="col-lg-4 col-md-12 col-12 mt-lg-0 mt-2">
                                         <div class="card card-info border-0 box-shadow-sm h-100">
