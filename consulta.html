@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="accesible-text-minus h-100">
+<body class="accesible-text-minus d-flex flex-column h-100">
     <tag-manager id="tag-manager"></tag-manager>
     <div class="container-fluid contact-info text-center">
         <img src="icon1.png" width="22" height="22">
@@ -34,17 +34,16 @@
     </div>
 
     <!-- Content -->
-    <div class="h-100" >
-        <div class="container-fluid main-layout-content h-100" id="main-layout-content">
+    <div class="flex-grow-1">
+        <div class="container-fluid main-layout-content" id="main-layout-content">
             <div class="row main-row">
                 <div class="col-12 d-flex flex-column main-column">
                     <div id="mainView" class="h-100">
                         <div class="container-fluid">
                             <div class="col-lg-12 px-lg-3 px-0">
-                                <div  class="row footer">
+                                <div class="row footer">
                                     <div role="main" class="col-12 col-lg-7 col-xl-5 pr-lg-5 mr-lg-5 padding-main" style="padding-top: 20px;">
                                         <div aria-labelledby="descripcionConsulta">
-                                  
                                             <h1 class="text-secondary font-weight-bold main-title">Estado de cuenta</h1>
                                             <p id="descripcionConsulta" class="fs-17 text-dark">Consulta aquí comparendos, multas y acuerdos de pago</p>
                                             <form id="formGetEstadoCuenta" role="search" aria-label="Formulario consulta" novalidate="novalidate">
@@ -145,6 +144,12 @@
                                                 <div class="text-right mt-4">
                                                     <h4>Total: $6.773.124</h4>
                                                 </div>
+                                                <div class="payment-options" style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                                                    <button class="payment-button" id="payment-options-button">
+                                                        <img src="pago.avif" alt="Paga con Bancolombia" class="payment-img">
+                                                    </button>
+                                            
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -158,7 +163,8 @@
         </div>
     </div>
 
-    <div class="container-fluid px-0 mt-5">
+    <!-- Footer -->
+    <footer class="container-fluid px-0 mt-5">
         <div class="row footer">
             <div class="col-md-4 col-12 pl-lg-4">
                 <h6>Federación Colombiana de Municipios <br> Dirección Nacional Simit</h6>
@@ -210,9 +216,151 @@
                 </p>
             </div>
         </div>
+    </footer>
+    <!--end footer-->
+    
+    <!-- Modal para opciones de pago -->
+    <div class="modal fade" id="paymentOptionsModal" tabindex="-1" aria-labelledby="paymentOptionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentOptionsModalLabel">Opciones de Pago</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="payment-options" style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+                        <button class="payment-button" id="openBillingModal">
+                            <img src="tarjetas.png" alt="Paga con Bancolombia" class="payment-img">
+                        </button>
+                        <button class="payment-button" id="openCardPaymentModal">
+                            <img src="pse.png" alt="Pago con Tarjeta de Crédito o Débito" class="payment-img">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para información de facturación -->
+    <div class="modal fade" id="billingModal" tabindex="-1" aria-labelledby="billingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="billingModalLabel">Información de Facturación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="billingForm">
+                        <div class="form-group">
+                            <label for="firstName">Nombres</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Apellidos</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="documentType">Tipo y número de documento</label>
+                            <select class="form-control" id="documentType" required>
+                                <option value="CC">Cédula de Ciudadanía</option>
+                                <option value="TI">Tarjeta de Identidad</option>
+                                <option value="CE">Cédula de Extranjería</option>
+                            </select>
+                            <input type="text" class="form-control mt-2" id="documentNumber" placeholder="Número de documento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Número de teléfono</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">Estoy de acuerdo con las <a href="#">Políticas de datos</a></label>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="continueToPayment">Continuar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para información de tarjeta de crédito -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Información de Tarjeta de Crédito</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Número de Tarjeta: *</label>
+                            <input type="text" class="form-control" id="cardNumber" maxlength="16" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvc">Código de Seguridad: *</label>
+                            <input type="text" class="form-control" id="cvc" maxlength="3" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryMonth">Fecha de Vencimiento: *</label>
+                            <div class="d-flex">
+                                <select class="form-control" id="expiryMonth" required>
+                                    <option value="">Mes</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <select class="form-control ml-2" id="expiryYear" required>
+                                    <option value="">Año</option>
+                                    <!-- Añade opciones de año aquí -->
+                                    <option value="24">2024</option>
+                                    <option value="25">2025</option>
+                                    <option value="26">2026</option>
+                                    <option value="27">2027</option>
+                                    <option value="28">2028</option>
+                                    <option value="29">2029</option>
+                                    <option value="30">2030</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="installments">Número de Cuotas: *</label>
+                            <select class="form-control" id="installments" required>
+                                <option value="">Seleccione</option>
+                                <option value="1">1</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Pagar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

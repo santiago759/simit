@@ -52,10 +52,15 @@ html {
     -webkit-text-size-adjust:100%;
     -webkit-tap-highlight-color:transparent
 }
+html, body {
+    height: 100%;
+}
 figure,footer,header,main,nav {
     display:block
 }
 body {
+    display: flex;
+    flex-direction: column;
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     font-size:1rem;
@@ -1596,6 +1601,9 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
     flex-grow:1;
     -ms-flex-align:center;
     align-items:center
+}
+.flex-grow-1 {
+    flex-grow: 1;
 }
 @media (max-width:575.98px) {
     .navbar-expand-sm>.container,.navbar-expand-sm>.container-fluid {
@@ -9022,4 +9030,72 @@ div[disabled=disabled] {
     .main-header  {
         position: relative;
     }
+}.payment-options img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+.payment-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.payment-img {
+    width: 100px;
+    height: auto;
+}
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 10px 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
 }
