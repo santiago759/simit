@@ -111,7 +111,7 @@
                                                 <div class="input-group input-main mb-3">
                                                     <input id="txtBusqueda" name="txtBusqueda" type="text" data-step="4" placeholder="Número de identificación o placa del vehículo" aria-label="Número de identificación o placa del vehículo" class="form-control border-0">
                                                     <div class="input-group-append">
-                                                        <button type="submit" id="consultar" aria-label="Consultar estado de cuenta" data-step="3" class="btn btn-primary font-weight-bold btn-sm py-1">
+                                                        <button href="consulta.html" type="submit" id="consultar" aria-label="Consultar estado de cuenta" data-step="3" class="btn btn-primary font-weight-bold btn-sm py-1">
                                                             <img src="buscar.png" width="22" height="22">
                                                         </button>
                                                     </div>
@@ -120,6 +120,21 @@
                                         </div>
                                     </div>
                                 </div>
+                                <script>document.addEventListener("DOMContentLoaded", function() {
+                                    document.getElementById("formGetEstadoCuenta").addEventListener("submit", function(event) {
+                                        event.preventDefault(); // Evitar el envío predeterminado del formulario
+                                        var busqueda = document.getElementById("txtBusqueda").value;
+                                        
+                                        // Aquí puedes agregar cualquier lógica de validación adicional si es necesario
+                                        if(busqueda.trim() === "") {
+                                            alert("Por favor ingrese un número de identificación o placa del vehículo.");
+                                            return;
+                                        }
+                                
+                                        // Redirigir a consulta.html (puedes pasar parámetros si es necesario)
+                                        window.location.href = "consulta.html?busqueda=" + encodeURIComponent(busqueda);
+                                    });
+                                });</script>
                                 <!-- carrusel -->
                                 <div id="initStep8" class="row margin-top-card">
                                     <div class="col-lg-4 col-12">
