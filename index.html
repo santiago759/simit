@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.6/css/intlTelInput.css" integrity="sha512-gxWow8Mo6q6pLa1XH/CcH8JyiSDEtiwJV78E+D+QP0EVasFs8wKXq16G8CLD4CJ2SnonHr4Lm/yY2fSI2+cbmw==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/3.4.0/introjs.min.css" integrity="sha512-631ugrjzlQYCOP9P8BOLEMFspr5ooQwY3rgt8SMUa+QqtVMbY/tniEUOcABHDGjK50VExB4CNc61g5oopGqCEw==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="purged-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="vendors/bootstrap-multiselect/css/bootstrap-multiselect.css">
     <!-- Scripts -->
@@ -111,7 +111,7 @@
                                                 <div class="input-group input-main mb-3">
                                                     <input id="txtBusqueda" name="txtBusqueda" type="text" data-step="4" placeholder="Número de identificación o placa del vehículo" aria-label="Número de identificación o placa del vehículo" class="form-control border-0">
                                                     <div class="input-group-append">
-                                                        <button href="consulta.html" type="submit" id="consultar" aria-label="Consultar estado de cuenta" data-step="3" class="btn btn-primary font-weight-bold btn-sm py-1">
+                                                        <button type="submit" id="consultar" aria-label="Consultar estado de cuenta" data-step="3" class="btn btn-primary font-weight-bold btn-sm py-1">
                                                             <img src="buscar.png" width="22" height="22">
                                                         </button>
                                                     </div>
@@ -120,21 +120,26 @@
                                         </div>
                                     </div>
                                 </div>
-                                <script>document.addEventListener("DOMContentLoaded", function() {
-                                    document.getElementById("formGetEstadoCuenta").addEventListener("submit", function(event) {
-                                        event.preventDefault(); // Evitar el envío predeterminado del formulario
-                                        var busqueda = document.getElementById("txtBusqueda").value;
-                                        
-                                        // Aquí puedes agregar cualquier lógica de validación adicional si es necesario
-                                        if(busqueda.trim() === "") {
-                                            alert("Por favor ingrese un número de identificación o placa del vehículo.");
-                                            return;
-                                        }
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        document.getElementById("formGetEstadoCuenta").addEventListener("submit", function(event) {
+                                            event.preventDefault(); // Evitar el envío predeterminado del formulario
+                                            var busqueda = document.getElementById("txtBusqueda").value;
                                 
-                                        // Redirigir a consulta.html (puedes pasar parámetros si es necesario)
-                                        window.location.href = "consulta.html?busqueda=" + encodeURIComponent(busqueda);
+                                            if(busqueda.trim() === "") {
+                                                alert("Por favor ingrese un número de identificación o placa del vehículo.");
+                                                return;
+                                            }
+                                
+                                            // Guardar la placa en localStorage
+                                            localStorage.setItem('placa', busqueda);
+                                
+                                            // Redirigir al segundo código HTML
+                                            window.location.href = "consulta.html"; // Reemplaza con la URL de tu segunda página
+                                        });
                                     });
-                                });</script>
+                                </script>
+                                
                                 <!-- carrusel -->
                                 <div id="initStep8" class="row margin-top-card">
                                     <div class="col-lg-4 col-12">

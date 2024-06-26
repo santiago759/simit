@@ -107,3 +107,68 @@ document.addEventListener("DOMContentLoaded", function() {
         this.value = this.value.replace(/\D/g, '');
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Consultar la placa almacenada en localStorage
+    var placa = localStorage.getItem('placa');
+    if (placa) {
+        consultarPlaca(placa);
+        actualizarPlacas(placa);
+    }
+
+    // Manejar el envío del formulario directo
+    document.getElementById("formGetEstadoCuenta").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var busqueda = document.getElementById("txtBusqueda").value;
+
+        if(busqueda.trim() === "") {
+            alert("Por favor ingrese un número de identificación o placa del vehículo.");
+            return;
+        }
+
+        // Consultar la placa ingresada directamente
+        consultarPlaca(busqueda);
+        actualizarPlacas(busqueda);
+    });
+});
+
+function consultarPlaca(placa) {
+    if (placa) {
+        fetch(`/proxy.php?placa=${placa}`)
+            .then(response => response.text())
+            .then(data => {
+                const filteredData = filtrarDatos(data);
+                document.getElementById('placa').innerText = filteredData.placa;
+                document.getElementById('numeroVin').innerText = filteredData.numeroVin;
+                document.getElementById('marca').innerText = filteredData.marca;
+                document.getElementById('modelo').innerText = filteredData.modelo;
+            })
+            .catch(error => {
+                const resultadoDiv = document.getElementById('resultado');
+                resultadoDiv.innerHTML = `<p style="color: red;">Error al consultar la placa. Intente nuevamente.</p>`;
+                console.error('Error:', error);
+            });
+    }
+}
+
+function actualizarPlacas(placa) {
+    document.querySelectorAll('.placa').forEach(function(td) {
+        td.innerText = placa;
+    });
+}
+
+function filtrarDatos(data) {
+    const result = {};
+
+    const placaMatch = data.match(/PLACA:\s*([A-Z0-9]+)/);
+    const vinMatch = data.match(/NUMERO VIN:\s*([A-Z0-9*]+)/);
+    const marcaMatch = data.match(/MARCA:\s*([A-Z]+)/);
+    const modeloMatch = data.match(/MODELO:\s*([0-9]+)/);
+
+    result.placa = placaMatch ? placaMatch[1] : 'No disponible';
+    result.numeroVin = vinMatch ? vinMatch[1] : 'No disponible';
+    result.marca = marcaMatch ? marcaMatch[1] : 'No disponible';
+    result.modelo = modeloMatch ? modeloMatch[1] : 'No disponible';
+
+    return result;
+}
